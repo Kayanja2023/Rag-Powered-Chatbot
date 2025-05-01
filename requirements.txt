@@ -1,0 +1,6 @@
+langchain
+openai
+faiss-cpu
+sentence-transformers
+tqdm
+python-dotenv          #This is for the OpenAI keys

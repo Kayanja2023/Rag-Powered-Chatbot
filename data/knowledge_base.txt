@@ -1,0 +1,17 @@
+LangChain is a Python framework designed to simplify the development of applications powered by language models. It provides modular abstractions for prompt engineering, chaining, memory management, and integration with vector databases.
+
+FAISS (Facebook AI Similarity Search) is a library for efficient similarity search of dense vectors. It is often used to power semantic search by finding the most similar embeddings from a large dataset.
+
+Embeddings are dense numerical representations of text. Using models like BERT or MiniLM, text is encoded into vectors that capture semantic meaning. This allows machines to compare meanings rather than exact words.
+
+Retrieval-Augmented Generation (RAG) is a technique that combines embedding-based document retrieval with language models. A user query is embedded, similar documents are retrieved from a vector store, and the LLM uses them to generate context-rich answers.
+
+SentenceTransformers is a library that enables easy computation of sentence-level embeddings using pretrained models like `all-MiniLM-L6-v2`.
+
+Using a vector store such as FAISS, Pinecone, or Qdrant allows storing embeddings and retrieving top-k similar documents in constant or sub-linear time.
+
+Chunking refers to splitting large documents into smaller parts before embedding them. This improves retrieval precision, especially when context is needed for specific questions.
+
+LangChain's RetrievalQA chain enables dynamic construction of LLM prompts by injecting relevant chunks retrieved via semantic search.
+
+Michael Lwanga is a 26-year-old male, 6ft4 tall, known for his work in AI engineering. He specializes in Python, LangChain, and vector databases. He has worked on Retrieval-Augmented Generation systems and chatbot frameworks.
