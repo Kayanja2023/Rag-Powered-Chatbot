@@ -22,7 +22,7 @@ This repository hosts a LangChain-powered chatbot that enriches its prompts usin
 ## Features
 
 - Uses HuggingFace Embeddings (`all-MiniLM-L6-v2`) for lightweight sentence vectorization
-- Supports local (FAISS) or cloud-based (Pinecone, Qdrant) vector databases
+- Supports local FaceBook AI Similarity Search (FAISS) 
 - Implements Retrieval-Augmented Generation using LangChain's `RetrievalQA` chain
 - Modular file structure for easy swapping of embedding models and databases
 
@@ -44,15 +44,15 @@ Knowledge Base     → Vector Database
 ```
 ### Retrieval-Augmented Chatbot Pipeline
 
-| Component | Description |
-|----------|-------------|
-| **User Query** | The user's natural language input to the chatbot. |
-| **Retrieval-Augmented Generation Chain** | The main pipeline that coordinates embedding, retrieval, and response generation. |
-| **Embeddings** | Converts both documents and the user's query into dense vector representations. |
-| **Knowledge Base** | Source content (e.g., `.txt`, `.pdf`) chunked and embedded for context retrieval. |
-| **Vector Database** | Stores and indexes all document embeddings; enables similarity-based search (e.g., FAISS, Pinecone). |
-| **Retrieval** | Finds top-k relevant chunks from the vector DB using query embedding. |
-| **Chatbot** | Final LLM (e.g., GPT-3.5) that takes the retrieved content + original query and generates a response. |
+| Component | Description                                                                                     |
+|----------|-------------------------------------------------------------------------------------------------|
+| **User Query** | The user's natural language input to the chatbot.                                               |
+| **Retrieval-Augmented Generation Chain** | The main pipeline that coordinates embedding, retrieval, and response generation.               |
+| **Embeddings** | Converts the user's query into dense vector representations.                                    |
+| **Knowledge Base** | Source content (`.txt`) chunked and embedded for context retrieval.                             |
+| **Vector Database** | Stores and indexes all document embeddings; enables similarity-based search using FAISS         |
+| **Retrieval** | Finds top-k relevant chunks from the vector DB using query embedding.                           |
+| **Chatbot** | Final LLM (GPT-3.5) that takes the retrieved content + original query and generates a response. |
 ---
 ## Directory Structure
 

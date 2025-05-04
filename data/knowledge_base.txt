@@ -1,17 +1,42 @@
-LangChain is a Python framework designed to simplify the development of applications powered by language models. It provides modular abstractions for prompt engineering, chaining, memory management, and integration with vector databases.
 
-FAISS (Facebook AI Similarity Search) is a library for efficient similarity search of dense vectors. It is often used to power semantic search by finding the most similar embeddings from a large dataset.
+2025 Formula 1 Knowledge Base – Miami Grand Prix
 
-Embeddings are dense numerical representations of text. Using models like BERT or MiniLM, text is encoded into vectors that capture semantic meaning. This allows machines to compare meanings rather than exact words.
+Latest Race: Miami Grand Prix (May 4, 2025)
 
-Retrieval-Augmented Generation (RAG) is a technique that combines embedding-based document retrieval with language models. A user query is embedded, similar documents are retrieved from a vector store, and the LLM uses them to generate context-rich answers.
+Winner:
+- Oscar Piastri (McLaren) claimed victory after overtaking Max Verstappen on Lap 14 following a braking error.
 
-SentenceTransformers is a library that enables easy computation of sentence-level embeddings using pretrained models like `all-MiniLM-L6-v2`.
+Podium Finishers:
+- 1st: Oscar Piastri (McLaren)
+- 2nd: Lando Norris (McLaren)
+- 3rd: George Russell (Mercedes)
 
-Using a vector store such as FAISS, Pinecone, or Qdrant allows storing embeddings and retrieving top-k similar documents in constant or sub-linear time.
+Notable Incidents:
+- Jack Doohan crashed on Lap 1 after contact with Liam Lawson.
+- Max Verstappen started on pole but lost positions due to a braking mistake.
 
-Chunking refers to splitting large documents into smaller parts before embedding them. This improves retrieval precision, especially when context is needed for specific questions.
+Sprint Race (May 3, 2025):
+- Winner: Lando Norris (McLaren)
+- 2nd: Oscar Piastri (McLaren)
+- 3rd: Lewis Hamilton (Ferrari)
 
-LangChain's RetrievalQA chain enables dynamic construction of LLM prompts by injecting relevant chunks retrieved via semantic search.
+Driver Standings after Miami GP:
+1. Oscar Piastri (McLaren) – 106 points
+2. Lando Norris (McLaren) – 97 points
+3. Max Verstappen (Red Bull) – 87 points
+4. George Russell (Mercedes) – 78 points
+5. Charles Leclerc (Ferrari) – 47 points
 
-Michael Lwanga is a 26-year-old male, 6ft4 tall, known for his work in AI engineering. He specializes in Python, LangChain, and vector databases. He has worked on Retrieval-Augmented Generation systems and chatbot frameworks.
+Constructor Standings:
+1. McLaren – 203 points
+2. Mercedes – 118 points
+3. Red Bull – 105 points
+4. Ferrari – 84 points
+
+Season Highlights:
+- Piastri leads the Drivers' Championship with 3 wins.
+- McLaren leads Constructors' Championship thanks to consistent results from both drivers.
+- Verstappen faces pressure after recent off-podium finishes.
+
+Next Race:
+- Emilia-Romagna Grand Prix, Imola Circuit, Italy – May 18, 2025

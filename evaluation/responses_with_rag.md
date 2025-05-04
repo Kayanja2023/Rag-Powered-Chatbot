@@ -1,50 +1,46 @@
 # Evaluation: Responses Using Vector Database (RAG)
 
-This file documents chatbot responses enriched by FAISS-based retrieval from the knowledge base.
+This file documents chatbot responses enriched by FAISS-based retrieval from the Formula 1 knowledge base.
 
 ---
 
-## Query 1: What is LangChain?
+## Query 1: Who won the latest Formula 1 race?
 
 **Bot Response:**
-> LangChain is a framework for developing applications powered by language models.  
-> It provides modular abstractions to simplify chaining LLMs with memory, APIs, and knowledge bases.
+> Oscar Piastri won the Miami Grand Prix held on May 4, 2025, after overtaking Max Verstappen due to a braking error.
 
 **Source Context Retrieved:**
-> "LangChain is a framework for developing applications powered by language models..."
+> "Oscar Piastri (McLaren) claimed victory after overtaking Max Verstappen on Lap 14 following a braking error."
 
 ---
 
-## ✅ Query 2: What is FAISS used for?
+## Query 2: What are the current driver standings?
 
 **Bot Response:**
-> FAISS (Facebook AI Similarity Search) is a library used to store and search vector embeddings efficiently.  
-> It enables high-speed similarity search across large collections of embedded documents.
+> After the Miami Grand Prix, Oscar Piastri leads the standings with 106 points, followed by Lando Norris (97), Max Verstappen (87), George Russell (78), and Charles Leclerc (47).
 
 **Source Context Retrieved:**
-> "FAISS (Facebook AI Similarity Search) is an efficient library for vector similarity search at scale..."
+> "Driver Standings after Miami GP: 1. Oscar Piastri – 106 pts, 2. Lando Norris – 97 pts..."
 
 ---
 
-## ✅ Query 3: What are embeddings?
+## Query 3: What happened in the sprint race?
 
 **Bot Response:**
-> Embeddings are dense vector representations of text that allow models to compare semantic similarity.  
-> They’re crucial for vector search and retrieval in modern NLP systems.
+> The sprint race on May 3, 2025, was won by Lando Norris, with Oscar Piastri in second and Lewis Hamilton in third place.
 
 **Source Context Retrieved:**
-> "Embeddings are dense vector representations of text. Using models like MiniLM or BERT..."
+> "Sprint Race (May 3, 2025): Winner: Lando Norris, 2nd: Oscar Piastri, 3rd: Lewis Hamilton"
 
 ---
 
-## ✅ Query 4: How does retrieval-augmented generation work?
+## Query 4: When is the next race?
 
 **Bot Response:**
-> Retrieval-Augmented Generation (RAG) combines a vector search step with a language model to provide more accurate and contextual responses.  
-> It retrieves relevant chunks from a knowledge base and includes them in the prompt sent to the model.
+> The next race is the Emilia-Romagna Grand Prix at the Imola Circuit in Italy, scheduled for May 18, 2025.
 
 **Source Context Retrieved:**
-> "Retrieval-Augmented Generation (RAG) combines information retrieval with generative models..."
+> "Next Race: Emilia-Romagna Grand Prix, Imola Circuit, Italy – May 18, 2025"
 
 ---
-
+"""
