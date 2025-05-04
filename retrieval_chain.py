@@ -1,8 +1,10 @@
 # retrieval_chain.py
 
+# loads environment variables
 from dotenv import load_dotenv
 load_dotenv()
 
+# importing langchain components
 from langchain_community.vectorstores import FAISS
 from langchain_huggingface import HuggingFaceEmbeddings
 from langchain_openai import ChatOpenAI
@@ -20,23 +22,23 @@ from config.settings import (
 )
 
 def build_retrieval_chain():
-    print("Step 1: Loading knowledge base from:", KNOWLEDGE_PATH)
+    print("Loading knowledge base from:", KNOWLEDGE_PATH)
     loader = TextLoader(KNOWLEDGE_PATH)
     documents = loader.load()
 
-    print(f"Step 2: Splitting text into chunks (size={CHUNK_SIZE}, overlap={CHUNK_OVERLAP})...")
+    print(f"Splitting text into chunks (size={CHUNK_SIZE}, overlap={CHUNK_OVERLAP})...")
     splitter = RecursiveCharacterTextSplitter(
         chunk_size=CHUNK_SIZE,
         chunk_overlap=CHUNK_OVERLAP
     )
     chunks = splitter.split_documents(documents)
 
-    print("Step 3: Embedding using model:", EMBED_MODEL)
+    print("Embedding using model:", EMBED_MODEL)
     embeddings = HuggingFaceEmbeddings(model_name=EMBED_MODEL)
 
     # Create or load FAISS index
     if os.path.exists(INDEX_PATH):
-        print("Step 4: Loading existing FAISS index from:", INDEX_PATH)
+        print("Loading existing FAISS index from:", INDEX_PATH)
         vector_store = FAISS.load_local(
             INDEX_PATH,
             embeddings,

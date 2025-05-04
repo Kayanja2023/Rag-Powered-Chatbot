@@ -29,19 +29,7 @@ This repository hosts a LangChain-powered chatbot that enriches its prompts usin
 
 ---
 
-## Architecture
-```
-            User Query
-               ↓
-Retrieval-Augmented Generation Chain
-   ↓                    ↓
-Embeddings           Retrieval
-   ↓                    ↓
-Knowledge Base     → Vector Database
-   ↓                    ↑
-        ←── Chatbot ────
 
-```
 ### Retrieval-Augmented Chatbot Pipeline
 
 | Component | Description                                                                                     |
@@ -58,22 +46,23 @@ Knowledge Base     → Vector Database
 
 ```
 rad-gp-c25-p-i5/
-├── chatbot.py                  # Entry script for running the chatbot
-├── retrieval_chain.py          # RAG logic and chain construction
+├── chatbot.py                  # Runs the chatbot interface
+├── retrieval_chain.py          # Constructs the retrieval chain
 ├── vector_store/
-│   └── faiss_index/            # Local FAISS index storage
+│   └── faiss_index/            # Contains saved FAISS index files (.faiss, .pkl)
 ├── data/
-│   └── knowledge_base.txt      # Text corpus used for embeddings
+│   └── knowledge_base.txt      # Source content used for embeddings
 ├── evaluation/
-│   └── responses_with_rag.md   # Sample chatbot outputs using retrieval
+│   └── responses_with_rag.md   # Logs of enriched chatbot responses
 ├── config/
-│   └── settings.py             # Configuration (models, paths, keys)
+│   └── settings.py             # Stores config like index paths and model names
 ├── docs/
-│   ├── research_summary.md     # Embeddings and vector DB research
-│   └── architecture_v2.png     # Updated system diagram
-├── prompts/                    # Prompt template
-├── requirements.txt            # Python dependencies
-└── README.md                   # Project overview and usage
+│   └── research_summary.md     # Summary of embedding and vector DB research
+│  
+├── prompts/                    # Templates for LLM prompts
+├── requirements.txt            # Dependency list
+└── README.md                   # Overview
+
 
 
 ```
