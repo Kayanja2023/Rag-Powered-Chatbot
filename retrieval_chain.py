@@ -22,10 +22,13 @@ from config.settings import (
 )
 
 def build_retrieval_chain():
+
+    # Step 1: Load the knowledge base text
     print("Loading knowledge base from:", KNOWLEDGE_PATH)
     loader = TextLoader(KNOWLEDGE_PATH)
     documents = loader.load()
 
+    # Step 2: Split the document into overlapping chunks
     print(f"Splitting text into chunks (size={CHUNK_SIZE}, overlap={CHUNK_OVERLAP})...")
     splitter = RecursiveCharacterTextSplitter(
         chunk_size=CHUNK_SIZE,
@@ -33,16 +36,19 @@ def build_retrieval_chain():
     )
     chunks = splitter.split_documents(documents)
 
+    # Step 3: Create embeddings for each chunk using HuggingFace model
     print("Embedding using model:", EMBED_MODEL)
     embeddings = HuggingFaceEmbeddings(model_name=EMBED_MODEL)
 
-    # Create or load FAISS index
+    # Step 4: Initialize FAISS vector store — load from cache if it already exists, else build new index
     if os.path.exists(INDEX_PATH):
         print("Loading existing FAISS index from:", INDEX_PATH)
         vector_store = FAISS.load_local(
             INDEX_PATH,
             embeddings,
-            allow_dangerous_deserialization=True
+            allow_dangerous_deserialization=True                                    # Allows loading of saved FAISS index that includes serialized Python objects (e.g. embedding models);
+
+
         )
     else:
         print("Creating new FAISS index...")
@@ -50,13 +56,14 @@ def build_retrieval_chain():
         vector_store.save_local(INDEX_PATH)
         print("Saved FAISS index to:", INDEX_PATH)
 
-    # Set up retriever with more results to increase matching probability
+    # Step 5: Convert the FAISS store into a retriever (searches top-k similar chunks)
     retriever = vector_store.as_retriever(search_kwargs={"k": 5})
 
-    # Load the LLM (OpenAI GPT-3.5)
+    # Step 6: Load OpenAI’s GPT-3.5 as the language model
     llm = ChatOpenAI(model_name="gpt-3.5-turbo", temperature=0)
 
-    print("Step 5: RetrievalQA chain initialized.")
+    # Step 7: Combine retriever + LLM into a RetrievalQA chain
+    print("RetrievalQA chain initialized.")
     return RetrievalQA.from_chain_type(
         llm=llm,
         retriever=retriever,
