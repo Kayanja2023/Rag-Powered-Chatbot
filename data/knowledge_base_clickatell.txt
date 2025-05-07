@@ -1,0 +1,81 @@
+
+Clickatell Q&A Chatbot Knowledge Base
+=====================================
+
+Project Context:
+----------------
+This knowledge base is designed to support the implementation of a company-specific Q&A chatbot for Clickatell. The chatbot will use vector-based retrieval to provide fast, contextual, and accurate responses using the information compiled below. This document is structured to facilitate embedding into a vector database and support prompt generation with metadata tags.
+
+---
+
+Section 1: Company Overview
+---------------------------
+- Founded: 2000
+- Headquarters: Silicon Valley, California, USA
+- Offices: Canada, South Africa, Nigeria
+- Mission: To make commerce in chat accessible to everyone, everywhere
+- CEO: Pieter de Villiers
+- Customers: 10,000+ including Fortune 50 brands
+
+---
+
+Section 2: Products & Services
+------------------------------
+- **Chat Commerce Platform:** Multi-channel messaging, live support, in-chat payments
+- **One API:** RESTful messaging across SMS and WhatsApp
+- **Chat 2 Pay:** In-chat payments via secure links on WhatsApp or SMS
+- **Chat Flow:** Workflow builder for chatbot automation
+- **Chat Desk:** Live agent interface for real-time support
+
+---
+
+Section 3: Developer and API Documentation
+------------------------------------------
+- **Authentication:** API Key in Authorization header, HTTPS, TLS 1.2+
+- **Message Send (One API):** JSON POST request with fields `text` and `to`
+- **Delivery Status:** Real-time updates via callback URL
+- **WhatsApp Templates:** Pre-approved messages with variables {{1}}, {{2}}, etc.
+- **API Docs:** https://docs.clickatell.com/channels/one-api/one-api-reference/
+
+---
+
+Section 4: Pricing and Plans
+----------------------------
+- **Prepaid:** Pay-as-you-go for basic messaging
+- **Connect:** Adds WhatsApp, campaign manager, high throughput
+- **Interact:** Adds Chat Flow, Chat Desk, CRM integration
+- **Transact:** Adds Chat 2 Pay, payments, compliance tools
+- **Billing:** Credit-based or invoiced; prepaid uses credit top-up
+- **WhatsApp Billing:** Per conversation based on message type
+
+---
+
+Section 5: Workflows & Troubleshooting
+--------------------------------------
+- **Set Up WhatsApp:** Register WABA, get approval, sync templates
+- **Send Test SMS:** POST to One API, monitor callback status
+- **Troubleshoot:** Use delivery status, error codes, and opt-in validation
+- **Template Management:** Create via Facebook Business Manager, sync in portal
+
+---
+
+Section 6: Style and Tone Guide
+-------------------------------
+- **Tone:** Helpful, professional, optimistic
+- **Style:** Clear, concise, second-person (you/your)
+- **Examples:**
+  - “Clickatell assists you in applying for WhatsApp Business.”
+  - “Navigate to My Workspace → WhatsApp to begin.”
+- **Template Writing:** Focused, benefit-driven, avoids jargon
+
+---
+
+Section 7: Metadata Guidelines
+------------------------------
+Each block includes tags like:
+- Topic: e.g., "API Usage", "Pricing", "Support"
+- Intended User: Developer, Marketer, Business Owner
+- Source URL: Where the data was pulled from (docs, help center)
+
+This metadata ensures structured embedding and retrieval when creating vector search.
+
