@@ -9,8 +9,14 @@ def main():
 
     fallback_keywords = [
         "i'm not confident",
-        "let me connect you to a live agent"
+        "let me connect you to a live agent",
+        "i'm unable to assist",
+        "i do not have that information",
+        "this may require a human agent",
+        "cannot confidently answer",
+        "not covered in the documents"
     ]
+
 
     while True:
         user_input = input("\nYou: ").strip()
