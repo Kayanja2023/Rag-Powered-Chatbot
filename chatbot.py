@@ -1,13 +1,11 @@
-# chatbot.py
-
 from retrieval_chain import build_retrieval_chain
-
 
 def main():
     print("\nRetrieval-Augmented Chatbot Initialized")
     print("Type your question or 'exit' to quit.")
 
     qa_chain = build_retrieval_chain()
+    session_id = "user"  # could be user ID or UUID for multi-user setup
 
     while True:
         user_input = input("\nYou: ")
@@ -16,26 +14,30 @@ def main():
             break
 
         try:
-            # Call the chain with the user query
-            result = qa_chain.invoke({"query": user_input})
+            result = qa_chain.invoke(
+                {"question": user_input},
+                config={"configurable": {"session_id": session_id}}
+            )
 
-            # Check for uncertainty phrases in the output
+            # Handover trigger detection (uncertainty fallback)
             handover_triggers = [
-                "i'm not sure",
                 "i don't know",
-                "i cannot answer",
-                "no relevant information",
-                "not enough information"
+                "i'm not sure",
+                "unable to find",
+                "not covered",
+                "not in the provided documents",
+                "i do not have enough information"
             ]
 
-            if any(trigger in result['result'].lower() for trigger in handover_triggers):
+            response_lower = result.lower()
+
+            if any(trigger in response_lower for trigger in handover_triggers):
                 print("\n Bot: I'm not confident I can assist with that. Let me connect you to a live agent.")
             else:
-                print("\n Bot:", result['result'])
+                print("\n Bot:", result)
 
         except Exception as e:
             print(" An error occurred:", str(e))
-
 
 if __name__ == "__main__":
     main()
