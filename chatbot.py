@@ -5,39 +5,33 @@ def main():
     print("Type your question or 'exit' to quit.")
 
     qa_chain = build_retrieval_chain()
-    session_id = "user"  # could be user ID or UUID for multi-user setup
+    session_id = "user-session"  # In production: generate or map user-specific ID
+
+    fallback_keywords = [
+        "i'm not confident",
+        "let me connect you to a live agent"
+    ]
 
     while True:
-        user_input = input("\nYou: ")
+        user_input = input("\nYou: ").strip()
         if user_input.lower() in ["exit", "quit"]:
             print("Exiting chat.")
             break
 
         try:
-            result = qa_chain.invoke(
-                {"question": user_input},
+            response = qa_chain.invoke(
+                {"input": user_input},
                 config={"configurable": {"session_id": session_id}}
             )
 
-            # Handover trigger detection (uncertainty fallback)
-            handover_triggers = [
-                "i don't know",
-                "i'm not sure",
-                "unable to find",
-                "not covered",
-                "not in the provided documents",
-                "i do not have enough information"
-            ]
-
-            response_lower = result.lower()
-
-            if any(trigger in response_lower for trigger in handover_triggers):
-                print("\n Bot: I'm not confident I can assist with that. Let me connect you to a live agent.")
+            response_lower = response.lower()
+            if any(trigger in response_lower for trigger in fallback_keywords):
+                print("\nBot: I'm not confident I can assist with that. Let me connect you to a live agent.")
             else:
-                print("\n Bot:", result)
+                print("\nBot:", response)
 
         except Exception as e:
-            print(" An error occurred:", str(e))
+            print("An error occurred:", str(e))
 
 if __name__ == "__main__":
     main()
