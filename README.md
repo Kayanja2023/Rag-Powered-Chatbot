@@ -1,93 +1,67 @@
-
-# RaD-GP-C25-P-I5: Enhancing Generative AI with Embeddings and Vector Databases
+# Clickatell RAG-Powered Q&A Chatbot
 
 ## Project Requirements
 
-The ask for the project **[RaD-GP-C25-P-I5]** is to build a chatbot that integrates **vector databases** and **embedding-based retrieval** to enhance contextual responses using Retrieval-Augmented Generation (RAG). The objective is to demonstrate how external knowledge can be embedded, stored, and retrieved to enrich prompts and improve the relevance and accuracy of generated responses.
+ The ask for the project [RaD-GP-C25-P-I6] is to build a chatbot that integrates company-specific knowledge into a Generative AI system using embedding-based retrieval and conversational memory. The goal is to demonstrate how internal knowledge assets can be structured, embedded, and queried to support accurate and brand-consistent answers. The chatbot should provide coherent, multi-turn dialogue capabilities while gracefully handling uncertainty with a seamless fallback mechanism.
 
-The deliverables include:
-- A comprehensive research summary on embedding techniques and vector database systems
-- A revised system architecture and README
-- A working RAG-based chatbot prototype 
-- A live demonstration showcasing improved contextual accuracy
+### The deliverables include:
+
+- An embedded knowledge base built from company FAQs, product info, and policies
+- A chatbot with memory to support context-aware, multi-turn conversations
+- Standardized prompt templates to ensure consistent tone and structure
+- A fallback system to detect uncertainty and offer live agent handover
+- A working prototype demonstrating RAG-based question answering
+- A live demo covering architecture, features, and chatbot examples
+
+## Clickatell RAG-Powered Q&A Chatbot
+
+####  Architecture
+
+### Components
+
+| Module              | Description                                          |
+|---------------------|------------------------------------------------------|
+| `chatbot.py`        | CLI-based main interface loop for user interaction   |
+| `retrieval_chain.py`| Initializes vector store, memory, and LLM pipeline   |
+| `config/settings.py`| Stores constants for chunking, model, paths, etc.    |
+| `data/knowledge_base_clickatell.txt` | Source knowledge file                                |
+| `vector_store/`     | FAISS index generated from the knowledge base        |
+| `prompts/`          | Contains prompt templates for chat/system formatting |
+| `evaluation/`       | Examples annotated responses                         |
+| `docs/`             | Contains project documentation like research summary |
 
 ---
-
-## Overview
-
-This repository hosts a LangChain-powered chatbot that enriches its prompts using embedded knowledge from a local corpus. By leveraging vector similarity search and document chunk retrieval, the chatbot provides contextually relevant responses using information outside the model's pretraining.
+## Overview  
+This repository contains a LangChain-based chatbot designed to answer company-specific questions using a local knowledge base. By combining embedding-based retrieval with conversational memory, the chatbot delivers accurate, context-aware responses that reflect internal documentation. It supports multi-turn interactions, prompt templating, and a fallback mechanism for seamless live agent escalation.
 
 ---
-
 ## Features
 
-- Uses HuggingFace Embeddings (`all-MiniLM-L6-v2`) for lightweight sentence vectorization
-- Supports local FaceBook AI Similarity Search (FAISS) 
-- Implements Retrieval-Augmented Generation using LangChain's `RetrievalQA` chain
-- Modular file structure for easy swapping of embedding models and databases
+### 1. RAG Pipeline
+- Uses `langchain`, `FAISS`, and `HuggingFaceEmbeddings`
+- Breaks input knowledge into retrievable chunks
 
+### 2. Conversational Buffer Memory
+- Session-based in-memory history via `ChatMessageHistory`
+- Ensures consistent and coherent multi-turn interactions
+
+### 3. Prompt Engineering & Templating
+- Company voice defined in `system_prompt.txt`
+- Responses consistently structured with numbered steps/bullets
+- Fallback behavior embedded into the LLM prompt itself
+
+### 4. Seamless Live Agent Handover
+- Triggers on model uncertainty via phrase detection
+- Responds: *"I'm not confident I can assist with that. Let me connect you to a live agent."*
 
 ---
 
+## How to Run
 
-### Retrieval-Augmented Chatbot Pipeline
-
-| Component | Description                                                                                     |
-|----------|-------------------------------------------------------------------------------------------------|
-| **User Query** | The user's natural language input to the chatbot.                                               |
-| **Retrieval-Augmented Generation Chain** | The main pipeline that coordinates embedding, retrieval, and response generation.               |
-| **Embeddings** | Converts the user's query into dense vector representations.                                    |
-| **Knowledge Base** | Source content (`.txt`) chunked and embedded for context retrieval.                             |
-| **Vector Database** | Stores and indexes all document embeddings; enables similarity-based search using FAISS         |
-| **Retrieval** | Finds top-k relevant chunks from the vector DB using query embedding.                           |
-| **Chatbot** | Final LLM (GPT-3.5) that takes the retrieved content + original query and generates a response. |
----
-## Directory Structure
-
-```
-rad-gp-c25-p-i5/
-├── chatbot.py                  # Runs the chatbot interface
-├── retrieval_chain.py          # Constructs the retrieval chain
-├── vector_store/
-│   └── faiss_index/            # Contains saved FAISS index files (.faiss, .pkl)
-├── data/
-│   └── knowledge_base.txt      # Source content used for embeddings
-├── evaluation/
-│   └── responses_with_rag.md   # Logs of enriched chatbot responses
-├── config/
-│   └── settings.py             # Stores config like index paths and model names
-├── docs/
-│   └── research_summary.md     # Summary of embedding and vector DB research
-│  
-├── prompts/                    # Templates for LLM prompts
-├── requirements.txt            # Dependency list
-└── README.md                   # Overview
-
-
-
-```
-----
-
-
-
-
-## Setup Instructions
-
-### 1. Install Dependencies
-
-```bash
-pip install -r requirements.txt
-```
-
-### 2. Configure Environment
-
-Create a `.env` file at the root with:
-
-```env
-OPENAI_API_KEY=your-api-key-here
-```
-
-### 3. Run the Application
+> Prerequisites:
+- Python 3.10+
+- `requirements.txt` installed (`pip install -r requirements.txt`)
+- `.env` file with any API keys (e.g., OpenAI)
 
 ```bash
 python chatbot.py
@@ -95,7 +69,50 @@ python chatbot.py
 
 ---
 
+## Sample Prompts to Test Fallback
 
+```text
+What is Clickatell’s current share price?
+Tell me something about our CEO's favorite movie.
+Can you enable psychic mode?
+```
+
+These should all gracefully fall back to the live agent handover.
 
 ---
 
+## Directory Overview
+
+```bash
+├── chatbot.py                  # Main user interaction loop
+├── retrieval_chain.py          # LLM + retrieval + memory pipeline
+├── config/
+│   └── settings.py             # Constants for chunking, model, paths
+├── data/
+│   └── knowledge_base_clickatell.txt
+├── docs/
+│   └── research_summary.pdf
+├── prompts/
+│   ├── system_prompt.txt
+│   └── chat_prompt.txt
+├── evaluation/
+│   └── responses_with_rag.md
+├── vector_store/
+│   └── faiss_index/            # FAISS index and metadata
+├── requirements.txt
+├── README.md
+└── .env                        # API keys (ignored in VCS)
+```
+
+---
+
+## Research Summary
+
+See `docs/research_summary.pdf` for a full write-up on:
+- Prompt strategies
+- Memory architecture
+- Evaluation techniques
+- RAG configuration and embedding strategies
+
+
+`#GenerativeAI` `#RAG` `#LangChain` `#VectorSearch` `#PromptEngineering` `#ClickatellR&D`

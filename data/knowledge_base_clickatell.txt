@@ -59,23 +59,7 @@ Section 5: Workflows & Troubleshooting
 
 ---
 
-Section 6: Style and Tone Guide
--------------------------------
-- **Tone:** Helpful, professional, optimistic
-- **Style:** Clear, concise, second-person (you/your)
-- **Examples:**
-  - “Clickatell assists you in applying for WhatsApp Business.”
-  - “Navigate to My Workspace → WhatsApp to begin.”
-- **Template Writing:** Focused, benefit-driven, avoids jargon
 
----
 
-Section 7: Metadata Guidelines
-------------------------------
-Each block includes tags like:
-- Topic: e.g., "API Usage", "Pricing", "Support"
-- Intended User: Developer, Marketer, Business Owner
-- Source URL: Where the data was pulled from (docs, help center)
 
-This metadata ensures structured embedding and retrieval when creating vector search.
 
