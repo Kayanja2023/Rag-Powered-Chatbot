@@ -15,7 +15,6 @@
 
 ## Clickatell RAG-Powered Q&A Chatbot
 
-####  Architecture
 
 ### Components
 
@@ -109,10 +108,10 @@ These should all gracefully fall back to the live agent handover.
 ## Research Summary
 
 See `docs/research_summary.pdf` for a full write-up on:
-- Prompt strategies
-- Memory architecture
-- Evaluation techniques
-- RAG configuration and embedding strategies
+- Prompt Design adn Templating
+- Buffer Memory
+- Embedding and vector Database
+- Workflow Summary
 
 
 `#GenerativeAI` `#RAG` `#LangChain` `#VectorSearch` `#PromptEngineering` `#ClickatellR&D`

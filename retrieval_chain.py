@@ -1,5 +1,7 @@
+# Load environment variables from a .env file
 from dotenv import load_dotenv
 load_dotenv()
+
 
 import os
 from config.settings import (
@@ -21,18 +23,22 @@ from langchain.prompts import ChatPromptTemplate, MessagesPlaceholder
 from langchain_core.runnables.history import RunnableWithMessageHistory
 from langchain_core.output_parsers import StrOutputParser
 
-# In-memory session storage
+# In-memory session storage for chat histories
 session_histories = {}
 
+
+# Load and index knowledge base
 def load_vector_store():
     loader = TextLoader(KNOWLEDGE_PATH, encoding="utf-8")
     documents = loader.load()
 
+    # Split large information into smaller chunks for embedding
     splitter = RecursiveCharacterTextSplitter(chunk_size=CHUNK_SIZE, chunk_overlap=CHUNK_OVERLAP)
     chunks = splitter.split_documents(documents)
 
     embeddings = HuggingFaceEmbeddings(model_name=EMBED_MODEL)
 
+    # Load existing FAISS index if available, otherwise create one
     if os.path.exists(INDEX_PATH):
         return FAISS.load_local(INDEX_PATH, embeddings, allow_dangerous_deserialization=True)
     else:
@@ -40,11 +46,17 @@ def load_vector_store():
         store.save_local(INDEX_PATH)
         return store
 
+
+# Build the retrieval + LLM chain
 def build_retrieval_chain():
     vector_store = load_vector_store()
     retriever = vector_store.as_retriever(search_kwargs={"k": 5})
+
+    # Initialize OpenAI Chat model
     llm = ChatOpenAI(model_name="gpt-3.5-turbo", temperature=0)
 
+
+    # System-level prompt with tone, structure, and fallback behavior
     prompt = ChatPromptTemplate.from_messages([
         MessagesPlaceholder(variable_name="chat_history"),
         ("system",
@@ -66,6 +78,7 @@ def build_retrieval_chain():
         ("human", "{input}")
     ])
 
+    # Build the LangChain chain
     chain = (
             {
                 "input": lambda x: x["input"],
@@ -73,9 +86,11 @@ def build_retrieval_chain():
             }
             | prompt
             | llm
-            | StrOutputParser()
+            | StrOutputParser()                                                                                          # Ensure string response is returned
     )
 
+
+    # Wrap the chain with message history (memory) support
     return RunnableWithMessageHistory(
         runnable=chain,
         get_session_history=lambda session_id: session_histories.setdefault(session_id, ChatMessageHistory()),
