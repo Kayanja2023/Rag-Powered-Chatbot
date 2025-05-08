@@ -37,11 +37,3 @@ For direct support and queries:
 ---
 
 
-
-The final structured text was prepared for use in:
-- Vector-based document embedding
-- Retrieval-augmented generation (RAG)
-- Generative Q&A chatbot development
-
----
-
