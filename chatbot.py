@@ -1,3 +1,4 @@
+# Import the function that builds the retrieval-augmented chatbot pipeline
 from retrieval_chain import build_retrieval_chain
 
 def main():
@@ -29,21 +30,25 @@ def main():
         if pending_handover:
             if user_input.lower() in ["yes", "y"]:
                 print("Bot: Connecting you to a live agent...")
-                break  # Stop the chatbot to simulate handover
+                break                                                       # Stop the chatbot to simulate handover
             elif user_input.lower() in ["no", "n"]:
                 print("Bot: Okay, feel free to ask another question.")
                 pending_handover = False
-                continue
+                continue                                                    # Skip rest of loop and prompt user again
             else:
                 print("Bot: Please type 'yes' or 'no'.")
                 continue
 
+
+        # Invoke the retrieval-augmented chain with user input and session ID
         try:
             response = qa_chain.invoke(
                 {"input": user_input},
                 config={"configurable": {"session_id": session_id}}
             )
 
+
+            # Check if the response contains any fallback trigger phrases
             response_lower = response.lower()
             if any(trigger in response_lower for trigger in fallback_keywords):
                 print("\nBot: I'm not confident I can assist with that. Would you like me to connect you to a live agent? (yes/no)")

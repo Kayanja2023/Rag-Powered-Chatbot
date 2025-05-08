@@ -59,6 +59,95 @@ Section 5: Workflows & Troubleshooting
 
 ---
 
+Section 6: Frequently Asked Questions (FAQs)
+--------------------------------------------
+
+Account Setup and Management
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+- Can I change my account email and password? Yes, in the Clickatell Portal.
+- Forgot your password? Use “Forgot password” on login page, reset via email.
+- Didn’t get the activation email? Check spam or contact support.
+- How to close your account? Initiate via Portal > Account Details > Close Account.
+- What user roles can be assigned? Default or custom roles available in the Portal.
+
+Pricing and Billing
+~~~~~~~~~~~~~~~~~~~
+- Can I get a refund? Case-by-case, processing fee may apply.
+- Adding/removing PayPal? Use Billing & Payments > Payment Methods tab.
+- How to top up balance? Profile > Top Up Balance or use Billing section.
+- Are failed messages charged? Not if they don’t leave Clickatell’s system.
+- Billing currency changes? Not possible once set.
+
+API Integration (Developers)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+- What’s needed for third-party integration? Active Clickatell and app accounts + API auth.
+- Supported third-party apps? Salesforce, Shopify, Zendesk, etc.
+- Reactivating or disabling integrations? Manage in Chat Flow integrations.
+
+Messaging Features and Delivery
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+- Unicode support? Yes, all UTF-8 characters supported.
+- Max SMS length? 160 chars (GSM), 70 chars (Unicode), multipart supported.
+- Priority vs Standard delivery? Priority = low latency, Standard = lower cost.
+- SMS not coming through? Add test numbers, monitor status, ensure opt-in.
+- Positive balance for test messages? Yes, safeguard to prevent abuse.
+- Delivery failures? Could be invalid numbers, carrier rules, or sender ID issues.
+
+Supported Platforms and Channels
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+- What platforms are supported? SMS, WhatsApp, USSD, voice/chat apps.
+- Global SMS coverage? 1000+ mobile networks in 220+ countries.
+
+Customer Support
+~~~~~~~~~~~~~~~~
+- How to contact support? Use web form or email: support@clickatell.com
+- Is support 24/7? Yes.
+- Where to find help? Help Center and developer docs available online.
+
+Section 6: Frequently Asked Questions (FAQs)
+--------------------------------------------
+
+Account Setup and Management
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+- **Can I change my account email and password?** Yes, via the Clickatell Portal settings.
+- **What if I forget my password?** Use “Forgot password” on the login page to receive a reset email.
+- **What if I didn’t get the activation email?** Check spam or contact support for assistance.
+- **How can I close my account?** Go to Profile > Account Details > Close Account.
+- **What roles can I assign to users?** Choose from default roles or create custom ones.
+
+Pricing and Billing
+~~~~~~~~~~~~~~~~~~~
+- **Can I get a refund?** Refunds are handled case-by-case; a processing fee may apply.
+- **How to manage PayPal?** Add/remove in Billing & Payments > Payment Methods.
+- **How to top up?** Go to Profile > Top Up Balance or use the Billing section.
+- **Are failed messages billed?** Only if the message left Clickatell’s system.
+- **Can I change my billing currency?** No, it’s fixed once set.
+
+API Integration
+~~~~~~~~~~~~~~~
+- **What’s required for third-party integration?** Valid Clickatell & app accounts plus API setup.
+- **Which apps are supported?** Salesforce, Shopify, Zendesk, and more.
+- **How to manage integrations?** Enable, disable, or reconnect via the Chat Flow portal.
+
+Messaging and Delivery
+~~~~~~~~~~~~~~~~~~~~~~
+- **Does Clickatell support Unicode?** Yes, UTF-8 encoding is supported.
+- **What’s the max SMS length?** 160 chars (GSM) or 70 chars (Unicode); multipart supported.
+- **Standard vs Priority delivery?** Priority is faster; Standard is more cost-effective.
+- **Why might test SMS not deliver?** Ensure test numbers are verified and account has balance.
+- **Why require a balance for test messages?** Prevents misuse of free testing.
+- **What causes delivery failures?** Invalid numbers, blocked content, or regional restrictions.
+
+Supported Channels
+~~~~~~~~~~~~~~~~~~
+- **Which channels are supported?** SMS, WhatsApp, USSD, voice/chat apps.
+- **Does Clickatell have global SMS reach?** Yes, over 1000 mobile networks in 220+ countries.
+
+Support
+~~~~~~~
+- **How to contact support?** Use the online form or email support@clickatell.com.
+- **Is support available 24/7?** Yes.
+- **Where to find self-help?** Help Center and Dev Docs are available online.
 
 
 
