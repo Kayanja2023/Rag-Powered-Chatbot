@@ -11,10 +11,7 @@ INDEX_PATH = os.path.join("vector_store", "faiss_index")
 # Embedding model to use from HuggingFace
 EMBED_MODEL = "sentence-transformers/all-MiniLM-L6-v2"
 
-# Prompt template paths
-CHAT_PROMPT_PATH = "prompts/chat_prompt.txt"
 
-SYSTEM_PROMPT_PATH = "prompts/system_prompt.txt"
 
 
 # Chunking configuration for splitting documents
