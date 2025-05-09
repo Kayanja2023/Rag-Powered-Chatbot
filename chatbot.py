@@ -40,7 +40,7 @@ def main():
                 continue
 
 
-        # Invoke the retrieval-augmented chain with user input and session ID
+        # Invoke the retrieval augmented chain with (user input and session ID)
         try:
             response = qa_chain.invoke(
                 {"input": user_input},

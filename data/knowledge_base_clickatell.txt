@@ -29,7 +29,7 @@ Section 2: Products & Services
 
 ---
 
-Section 3: Developer and API Documentation
+Section 3: Brief on Developer and API Documentation
 ------------------------------------------
 - **Authentication:** API Key in Authorization header, HTTPS, TLS 1.2+
 - **Message Send (One API):** JSON POST request with fields `text` and `to`
