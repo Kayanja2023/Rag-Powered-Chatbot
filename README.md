@@ -91,9 +91,6 @@ These should all gracefully fall back to the live agent handover.
 │   └── knowledge_base_clickatell.txt
 ├── docs/
 │   └── research_summary.pdf
-├── prompts/
-│   ├── system_prompt.txt
-│   └── chat_prompt.txt
 ├── evaluation/
 │   └── responses_with_rag.md
 ├── vector_store/
