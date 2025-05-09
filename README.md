@@ -100,7 +100,7 @@ These should all gracefully fall back to the live agent handover.
 │   └── faiss_index/            # FAISS index and metadata
 ├── requirements.txt
 ├── README.md
-└── .env                        # API keys (ignored in VCS)
+└── .env                        # API keys 
 ```
 
 ---
