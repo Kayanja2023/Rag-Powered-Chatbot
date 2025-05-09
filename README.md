@@ -25,7 +25,6 @@
 | `config/settings.py`| Stores constants for chunking, model, paths, etc.    |
 | `data/knowledge_base_clickatell.txt` | Source knowledge file                                |
 | `vector_store/`     | FAISS index generated from the knowledge base        |
-| `prompts/`          | Contains prompt templates for chat/system formatting |
 | `evaluation/`       | Examples annotated responses                         |
 | `docs/`             | Contains project documentation like research summary |
 
