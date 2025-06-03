@@ -1,8 +1,8 @@
-# Clickatell RAG-Powered Q&A Chatbot
+# Company Specific RAG-Powered Q&A Chatbot
 
 ## Project Requirements
 
- The ask for the project [RaD-GP-C25-P-I6] is to build a chatbot that integrates company-specific knowledge into a Generative AI system using embedding-based retrieval and conversational memory. The goal is to demonstrate how internal knowledge assets can be structured, embedded, and queried to support accurate and brand-consistent answers. The chatbot should provide coherent, multi-turn dialogue capabilities while gracefully handling uncertainty with a seamless fallback mechanism.
+ The ask for the project is to build a chatbot that integrates company-specific knowledge into a Generative AI system using embedding-based retrieval and conversational memory. The goal is to demonstrate how internal knowledge assets can be structured, embedded, and queried to support accurate and brand-consistent answers. The chatbot should provide coherent, multi-turn dialogue capabilities while gracefully handling uncertainty with a seamless fallback mechanism.
 
 ### The deliverables include:
 
@@ -13,7 +13,8 @@
 - A working prototype demonstrating RAG-based question answering
 - A live demo covering architecture, features, and chatbot examples
 
-## Clickatell RAG-Powered Q&A Chatbot
+## RAG-Powered Q&A Chatbot
+# Example company: Clickatell
 
 
 ### Components
