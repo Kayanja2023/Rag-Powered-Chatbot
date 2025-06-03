@@ -13,8 +13,8 @@
 - A working prototype demonstrating RAG-based question answering
 - A live demo covering architecture, features, and chatbot examples
 
-## RAG-Powered Q&A Chatbot
-# Example company: Clickatell
+# RAG-Powered Q&A Chatbot
+## Example company: Clickatell
 
 
 ### Components
